@@ -1,0 +1,53 @@
+
+/*版心容器*/
+.jd_container{
+    width: 100%;
+    /*宽度超过640或低于320时不再拉伸或缩放，防止图片出现失真或网页布局出错*/
+    /* 由psd图决定 主流为640px大小和750px大小 */
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+}
+
+/*顶部搜索模块*/
+.jd_search{
+    /*fix基于浏览器的宽度，absolute基于父元素*/
+    position: fixed;
+    /*不加这两个，会基于父元素的位置进行定位*/
+    left: 0;
+    top: 0;
+    /*宽度会占满全屏，此时在该盒子中再加入一个盒子居中显示*/
+    width: 100%;
+}
+.jd_search .jd_search_box{
+    width: 100%;
+    height: 40px;
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+    background-color: #d8505c;
+}
+.jd_search .jd_search_box a{
+    position: absolute;
+    top: 0;
+
+}
+.jd_search .jd_search_box .icon_logo{
+    width: 60px;
+    height: 40px;
+    background-color: black;
+    left: 0;
+}
+.jd_search .jd_search_box .login{
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    right: 0;
+}
+.jd_search .jd_search_box form{
+    width: 100%;
+}
+.jd_search .jd_search_box form input{}
+.jd_search .jd_search_box form .icon_search{}

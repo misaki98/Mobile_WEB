@@ -1,0 +1,8 @@
+/*.adapterFun(@deviceWidth:750px) {
+  @media (min-width: @deviceWidth) {
+    html {
+      font-size: @deviceWidth/@psdWidth*@baseSize;
+    }
+  }
+}*/
+/*# sourceMappingURL=mixins.css.map */

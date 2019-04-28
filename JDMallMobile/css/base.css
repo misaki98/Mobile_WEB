@@ -1,0 +1,77 @@
+ /*重置样式*/
+ *,::before,::after{
+     /*选中所有的元素和伪元素*/
+     margin: 0;
+     padding: 0;
+
+     /*针对移动端*/
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+     /*防止宽度溢出，所有盒子以边框开始计算宽度*/
+
+     /*清除移动端上默认的点击高亮的效果*/
+     -webkit-tap-highlight-color: transparent;
+ }
+
+ body{
+     font-size: 14px;
+     color: #333333;
+     font-family: "Microsoft YaHei",sans-serif;
+ }
+ ul,ol{
+     list-style:none;
+ }
+ a{
+     text-decoration: none;
+     color: #333333;
+ }
+ input,textarea{
+     outline: none;
+     border: none;
+     /*textarea不能改变大小*/
+     resize: none;
+     /*清除移动端输入框特有的样式*/
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+ }
+
+ /*公共样式*/
+ .fl{
+     float: left;
+ }
+ .fr{
+     float: right;
+ }
+ /*清除浮动类*/
+ .clearfix::before,
+ .clearfix::after{
+     content: '';
+     display: block;
+     height: 0;
+     line-height: 0;
+     visibility: hidden;
+     clear: both;
+ }
+ .m_l10{
+     margin-left: 10px;
+ }
+ .m_r10{
+     margin-right: 10px;
+ }
+ /* 精灵图公共样式*/
+ /*以icon_开头或包含了icon_的类都会被匹配*/
+ [class^='icon_'],[class*=' icon_']{
+     background: url('../images/sprites.png') no-repeat;
+     background-size: 200px 200px;
+ }
+ .b_left{
+     border-left: 1px solid #ddd;
+ }
+ .b_right{
+     border-right: 1px solid #ddd;
+ }
+ .b_bottom{
+     border-bottom: 1px solid #ddd;
+ }

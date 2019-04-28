@@ -1,0 +1,21 @@
+// 封装成adapter的mixin
+/*.adapterFun(@deviceWidth:750px) {
+  @media (min-width: @deviceWidth) {
+    html {
+      font-size: @deviceWidth/@psdWidth*@baseSize;
+    }
+  }
+}*/
+
+// extract(@deviceWidthList,1) 获取数组序号为1的值
+// when 当满足某个条件的时候才会执行这个函数
+.adapterFun(@index) when (@index<=length(@deviceWidthList)) {
+  @media (min-width: extract(@deviceWidthList, @index)) {
+    html {
+      font-size: extract(@deviceWidthList,@index)/@psdWidth*@baseSize;
+    }
+  }
+  // 使用自调用和条件判断来模拟遍历的效果
+  .adapterFun(@index+1);
+}
+

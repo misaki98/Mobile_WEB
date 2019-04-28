@@ -1,0 +1,287 @@
+@m:margin; //将属性名定义为变量，使用时格式为@{m}
+@color:pink;  //将属性值定义为变量 常用 使用时格式为@color
+@selector:.jd_search; //将选择器定义为变量
+
+body {
+  background-color: #f5f5f5;
+  .jd_container {
+    width: 100%;
+    /*宽度超过640或低于320时不再拉伸或缩放，防止图片出现失真或网页布局出错*/
+    /* 由psd图决定 主流为640px大小和750px大小 */
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+
+    // 搜索模块
+    .jd_search {
+      /*fix基于浏览器的宽度，absolute基于父元素*/
+      position: fixed;
+      /*不加这两个，会基于父元素的位置进行定位*/
+      left: 0;
+      top: 0;
+      /*宽度会占满全屏，此时在该盒子中再加入一个盒子居中显示*/
+      width: 100%;
+      z-index: 999;
+      .jd_search_box {
+        width: 100%;
+        height: 40px;
+        max-width: 640px;
+        min-width: 320px;
+        margin: 0 auto;
+        background-color: rgba(216,90,92,0);
+        position: relative;
+        a {
+          position: absolute;
+          top: 0;
+        }
+        .icon_logo {
+          width: 60px;
+          height: 36px;
+          background-position: 0 -103px;
+          // 将图片压缩1/2 提高清晰度，且定位同时也要被压缩
+          top: 4px;
+          left: 5px;
+        }
+        .login {
+          width: 50px;
+          height: 40px;
+          text-align: center;
+          line-height: 40px;
+          color: #fff;
+          right: 0;
+        }
+        form {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 50px;
+          input {
+            // 百分比是基于父元素内容宽度和高度，父元素设置了内边距后，内容的宽度就被挤压了
+            width: 100%;
+            height: 30px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            border-radius: 15px;
+            margin-top: 5px;
+            padding-left: 30px;
+          }
+          .icon_search {
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            left: 75px;
+            top: 10px;
+            background-position: -60px -109px;
+          }
+        }
+      }
+    }
+    //  轮播图模块
+    .jd_banner {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      ul:first-child {
+        // 里面要装10张图
+        width: 1000%;
+        // 平移一张的距离
+        -webkit-transform: translateX(-10%);
+        -moz-transform: translateX(-10%);
+        -ms-transform: translateX(-10%);
+        -o-transform: translateX(-10%);
+        transform: translateX(-10%);
+        li {
+          // 基于父容器内容宽度的10%，也就是轮播图的100%
+          width: 10%;
+          float: left;
+          a {
+            width: 100%;
+            display: block;
+            img {
+              width: 100%;
+              display: block;
+            }
+          }
+        }
+      }
+      ul:last-child {
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        width: 118px;
+        margin-left: -59px;
+        li {
+          width: 6px;
+          height: 6px;
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+          border: 1px solid #fff;
+          float: left;
+          margin-left: 10px;
+        }
+        li:first-child {
+          margin-left: 0;
+        }
+        li.now {
+          background-color: #fff;
+        }
+      }
+    }
+    //  导航栏模块
+    .jd_nav {
+      width: 100%;
+      ul {
+        width: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid #ccc;
+        background-color: #fff;
+        li {
+          width: 25%;
+          float: left;
+          a {
+            display: block;
+            width: 100%;
+            img {
+              width: 40px;
+              height: 40px;
+              display: block;
+              margin: 0 auto;
+            }
+            p {
+              color: #666;
+              font-size: 12px;
+              text-align: center;
+              padding: 5px 0;
+            }
+          }
+        }
+      }
+    }
+    .jd_product{
+    // 商品区域
+      padding: 0 5px;
+      .jd_proBox{
+        margin-top: 10px;
+        -webkit-box-shadow: 0 0 1px #d8d8d8 ;
+        -moz-box-shadow: 0 0 1px #d8d8d8  ;
+        box-shadow: 0 0 1px #d8d8d8 ;
+        min-height: 200px;
+        background-color: #fff;
+        &:first-child{
+          .pro_title{
+            border-bottom: none;
+          }
+        }
+        .pro_title{
+          height: 34px;
+          width: 100%;
+          line-height: 34px;
+          border-bottom: 1px solid #ddd;
+          h3{
+            position: relative;
+            text-indent: 1em;
+            font-weight: normal;
+            &::before{
+              content: '';
+              display: block;
+              position: absolute;
+              left: 10px;
+              top: 11px;
+              background-color: #d8505c;
+              height: 12px;
+              width: 3px;
+            }
+          }
+        }
+        .pro_con{
+
+        }
+      }
+    }
+  }
+}
+// 秒杀内容的标题部分
+.sk_icon{
+  width: 16px;
+  height: 20px;
+  float: left;
+  margin-top: 7px;
+  margin-left: 10px;
+  // 一倍左右
+  background: url("../images/seckill-icon.png") no-repeat;
+  -webkit-background-size: 16px 20px;
+  background-size: 16px 20px;
+}
+.sk_text{
+  color: #d8505c;
+  margin-left: 10px;
+  float: left;
+}
+.sk_time{
+  float: left;
+  margin-left: 10px;
+  span{
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    line-height: 16px;
+    color: #fff;
+    background-color: #333;
+    float: left;
+    margin-left: 3px;
+    margin-top: 9px;
+    &:nth-child(3n){
+      background-color: #fff;
+      color: #333;
+      width: 3px;
+    }
+  }
+}
+//秒杀内容的商品部分
+.sk_product{
+  width: 100%;
+  li{
+    width: 33.333%;
+    float: left;
+    padding: 10px 0;
+    &:last-child{
+      a{
+        border-right: none;
+      }
+    }
+    a{
+      width: 100%;
+      display: block;
+      border-right: 1px solid #ddd;
+      img{
+        width: 64%;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+    .now_price{
+      color: #d8505c;
+
+    }
+    .old_price{
+      color: #666;
+      text-decoration: line-through;
+    }
+    p{
+      font-size: 12px;
+      text-align: center;
+      padding: 5px 0;
+    }
+  }
+}
+
+// 组合样式
+.w_50{
+  width: 50%;
+  img{
+    display: block;
+    width: 100%;
+  }
+}
+
+
